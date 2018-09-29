@@ -1,0 +1,16 @@
+export const MAP_PUBLISH = "publishMap";
+export const MAP_DELETE = "deleteMap";
+export const MAP_EDIT = "editMap";
+export const MAP_RESET_STATE = "resetMapState";
+export const CHECK_AUTH = "checkAuth";
+export const FAVORITE_ADD = "addFavorite";
+export const FAVORITE_REMOVE = "removeFavorite";
+export const FETCH_MAP = "fetchMap";
+export const FETCH_MAPS = "fetchMaps";
+export const FETCH_PROFILE = "fetchProfile";
+export const FETCH_PROFILE_FOLLOW = "fetchProfileFollow";
+export const FETCH_PROFILE_UNFOLLOW = "fetchProfileUnfollow";
+export const LOGIN = "login";
+export const LOGOUT = "logout";
+export const REGISTER = "register";
+export const UPDATE_USER = "updateUser";

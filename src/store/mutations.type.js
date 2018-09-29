@@ -1,0 +1,9 @@
+export const FETCH_END = "setMaps";
+export const FETCH_START = "setLoading";
+export const PURGE_AUTH = "logOut";
+export const SET_MAP = "setMap";
+export const SET_AUTH = "setUser";
+export const SET_ERROR = "setError";
+export const SET_PROFILE = "setProfile";
+export const UPDATE_MAP_IN_LIST = "updateAricleInList";
+export const RESET_STATE = "resetModuleState";

@@ -1,0 +1,73 @@
+/* Fixes and changes for leaflet CSS */
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  border: none !important;
+  background-clip: padding-box;
+}
+
+.map-info-button {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  background-color: #fff;
+  z-index: 800;
+  border-radius: 2px;
+  padding: 0px;
+  background-image: url("icon-info.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+.map-info-button:hover {
+  background-color: #f4f4f4 !important;
+}
+
+ul.leaflet-draw-actions > li > a {
+  color: #fff !important;
+}
+
+.navbar-center {
+  margin-left: 14%;
+}
+
+/* Sidebar CSS */
+.toponavo-sidebar {
+  position: absolute;
+  padding: 10px;
+  z-index: 900;
+  top: 40px;
+  bottom: 0px;
+  left: -500px;
+  transition: left 0.3s;
+  width: 300px;
+  background: #fff;
+}
+
+.toponavo-sidebar.open {
+  left: 0;
+}
+
+ul.navbar-nav > span.navbar-text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+body,
+.dropdown-menu {
+  font-size: 0.88rem !important;
+}
+
+.modal-header {
+  border-bottom: none !important;
+}
+
+.modal-footer {
+  border-top: none !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 800 !important;
+}
