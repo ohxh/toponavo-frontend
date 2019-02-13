@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-light" :sticky="true">
     <div class="container">
       <router-link class="navbar-brand"
         :to="{ name: 'home' }">
@@ -70,15 +70,12 @@
   </nav>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
-  export default {
-    name: 'ToponavoHeader',
-    computed: {
-      ...mapGetters([
-        'currentUser',
-        'isAuthenticated'
-      ])
-    }
+export default {
+  name: "ToponavoHeader",
+  computed: {
+    ...mapGetters(["currentUser", "isAuthenticated"])
   }
+};
 </script>

@@ -16,6 +16,7 @@
     "leaflet": "^1.3.4",
     "leaflet-draw": "^1.0.3",
     "leaflet-vue": "^0.1.0",
+    "leaflet.layerscontrol-minimap": "^1.0.20",
     "marked": "^0.3.19",
     "vue": "^2.5.16",
     "vue-axios": "^2.1.1",

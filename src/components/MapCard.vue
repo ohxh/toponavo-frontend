@@ -13,12 +13,13 @@
       <h1>{{map.title}}</h1>
      </router-link>
 
-    <p>Description{{map.description}}</p>
+    <p>{{map.description}}</p>
   </b-card>
 </template>
 
 <script>
 import ToponavoMapMeta from "@/components/MapMeta";
+import MapActions from "@/components/MapActions";
 import { mapGetters } from "vuex";
 
 export default {
@@ -27,7 +28,8 @@ export default {
     map: { type: Object, required: true }
   },
   components: {
-    ToponavoMapMeta
+    ToponavoMapMeta,
+    MapActions
   },
   computed: {
     ...mapGetters(["currentUser", "isAuthenticated"])

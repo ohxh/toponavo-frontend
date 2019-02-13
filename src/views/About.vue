@@ -1,7 +1,7 @@
 <template>
   <div>
     <toponavo-header></toponavo-header>
-    <b-container class="mx-auto" style="width: 60%; margin-top: 20px;">
+    <b-container class="mx-auto" style="width: 60%; margin-top: 20px; overflow-y: scroll; height: calc(100vh - 40px);">
 
     <b-tabs pills>
   <b-tab title="About" active>
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import ToponavoHeader from '@/components/ToponavoHeader'
+import ToponavoHeader from "@/components/ToponavoHeader";
 
 export default {
-  name: 'example',
+  name: "example",
   components: {
     ToponavoHeader
   }
-}
+};
 </script>

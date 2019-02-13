@@ -1,17 +1,16 @@
 <template>
   <div>
     <div v-if="isLoading" class="map-card">
-      Loading...
     </div>
     <div v-else>
       <div v-if="maps.length === 0" class="map-card">
-        Nothing here.
       </div>
       <map-card
         v-for="(map, index) in maps"
         :map="map"
         :key="map.title + index">
       </map-card>
+      &nbsp;
       <v-pagination
         :pages="pages"
         :currentPage.sync="currentPage"

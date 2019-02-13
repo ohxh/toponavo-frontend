@@ -5,6 +5,61 @@
   background-clip: padding-box;
 }
 
+#style-selector {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+#style-selector > input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  height: 20px;
+  border-radius: 50%;
+  width: 20px;
+}
+
+#style-selector:checked {
+  border: 2px #000;
+}
+#style-selector .orange {
+  background-color: #ff5722;
+}
+
+#style-selector .amber {
+  background-color: #ffc107;
+}
+
+#style-selector .lime {
+  background-color: #8bc34a;
+}
+
+#style-selector .teal {
+  background-color: #009688;
+}
+
+#style-selector .blue {
+  background-color: #2196f3;
+}
+
+#style-selector .indigo {
+  background-color: #3f51b5;
+}
+
+#inspector-element-name {
+  border: none !important;
+  margin-right: 20px !important;
+  margin-left: 10px !important;
+  width: calc(100% - 30px);
+  font-size: 1.25em;
+}
+#inspector-element-name:hover,
+#inspector-element-name:focus {
+  border-bottom: 1px solid #000 !important;
+  outline: none;
+}
+
 .map-info-button {
   width: 30px;
   height: 30px;
@@ -70,4 +125,217 @@ body,
 .leaflet-top,
 .leaflet-bottom {
   z-index: 800 !important;
+}
+
+/* Changes to layer controls */
+
+.leaflet-control-layers-expanded {
+  height: 100vh;
+  border-radius: 0;
+  width: 200px;
+}
+
+.leaflet-control-layers-minimap > a.leaflet-control-layers-toggle {
+  width: 30px !important;
+  height: 30px !important;
+  background-image: url(layers.png);
+  background-size: 20px;
+}
+
+.leaflet-draw.leaflet-control {
+  z-index: 3 !important;
+}
+
+label.e {
+  width: 50px;
+  height: 50px;
+  float: right;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.layer-name {
+  font-weight: 600;
+}
+
+.layer-description {
+  margin-top: 0px !important;
+  margin-left: 10px !important;
+  display: block;
+  position: relative;
+}
+
+.user-img {
+  height: 120px;
+  border-radius: 60px;
+}
+
+ul.nav.nav-pills {
+  box-shadow: none;
+}
+/* */
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  border: none !important;
+  background-clip: padding-box;
+}
+
+.leaflet-control-layers-base {
+  z-index: 100000 !important;
+}
+.leaflet-control-layers-expanded {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  margin: 0px !important;
+  border-radius: 0;
+  width: 200px;
+  z-index: 10000 !important;
+}
+
+.leaflet-top.leaflet-right {
+  z-index: 1000 !important;
+}
+.leaflet-control-layers-minimap > a.leaflet-control-layers-toggle {
+  width: 30px !important;
+  height: 30px !important;
+  background-image: url(layers.png);
+  background-size: 20px;
+}
+
+.layer-image {
+  width: 50px;
+  height: 50px;
+  float: right;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.layer-name {
+  font-weight: 600;
+}
+
+.layer-description {
+  margin-top: 0px;
+  margin-left: 10px;
+  display: block;
+  position: relative;
+}
+
+#header {
+  height: 30px;
+  padding-top: 6px;
+}
+
+#logoText {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.leaflet-minimap-container {
+  margin: 10px !important;
+  border-radius: 4px !important;
+  border: 2px #000 !important;
+}
+
+.leaflet-minimap {
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  border-color: #000;
+}
+
+.leaflet-control-layers {
+  background: #fff !important;
+  border-radius: 3px !important;
+}
+
+.leaflet-minimap-container {
+  height: 80px !important;
+}
+
+.leaflet-minimap-label {
+  font-family: Roboto;
+  color: #000 !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 400 !important;
+  padding-right: 4px;
+  border-top-right-radius: 5px;
+}
+
+#header-links > a {
+  margin-left: 5px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+}
+
+#header-links > a:hover {
+  text-decoration: underline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "segoe ui";
+}
+
+.nav {
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.onespecificthing {
+  border-bottom: 1px solid rgb(204, 204, 204) !important;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 20px;
+  color: #000;
+  font-family: rubik;
+  font-weight: 700;
+  padding: 8px 8px 8px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 14px;
+  font-family: roboto;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 11px 10px 11px 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav > .nav-links > a:hover {
+  text-decoration: underline;
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+#sidebar {
+  top: 48px !important;
 }

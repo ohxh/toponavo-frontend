@@ -17,7 +17,7 @@
       :canModify="isCurrentUser()"
       ></toponavo-map-actions>
     </template>
-    <template v-else>
+    <template v-if="!isCurrentUser()">
       <button
       class="btn btn-sm pull-xs-right"
       v-if="!actions"

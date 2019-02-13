@@ -1,50 +1,43 @@
 <template>
-<div>
-  <toponavo-header>
-    <b-navbar-nav class="navbar-center"> 
-    <b-nav-text> Editing&nbsp;<b v-if="map.title">{{ map.title}}</b><span v-else>an unnamed map</span>&nbsp;</b-nav-text>
-    <b-nav-item-dropdown text="File" right>
-        <b-dropdown-item v-on:click="onPublish(map.slug, map)">Save (ctrl + s)</b-dropdown-item>
-        <b-dropdown-item href="#">Make a copy</b-dropdown-item>
-        <b-dropdown-item href="#">Import annotations</b-dropdown-item>
-        <b-dropdown-item href="#">Export annotations</b-dropdown-item>
-      </b-nav-item-dropdown>
-      <b-nav-item-dropdown text="Edit" right>
-        <b-dropdown-item v-on:click="onPublish(map.slug, map)">Save (ctrl + s)</b-dropdown-item>
-        <b-dropdown-item v-on:click="$refs.slippyMap.clearAnnotations()">Clear annotations</b-dropdown-item>
-        <b-dropdown-item href="#">Import annotations</b-dropdown-item>
-        <b-dropdown-item href="#">Export annotations</b-dropdown-item>
-      </b-nav-item-dropdown>
-      <b-nav-item-dropdown text="View" right>
-        <b-dropdown-item v-on:click="$refs.slippyMap.resetView()">Reset view</b-dropdown-item>
-        <b-dropdown-item v-on:click="$refs.slippyMap.zoomIn()">Zoom in</b-dropdown-item>
-        <b-dropdown-item v-on:click="$refs.slippyMap.zoomOut()">Zoom out</b-dropdown-item>
-      </b-nav-item-dropdown>
-      <b-nav-item-dropdown text="Output" right>
-        <b-dropdown-item href="#">Share a link</b-dropdown-item>
-        <b-dropdown-item href="#">Print...</b-dropdown-item>
-        <b-dropdown-item href="#">Export annotations</b-dropdown-item>
-      </b-nav-item-dropdown>
-    </b-navbar-nav>
-  </toponavo-header>
-   <slippy-map :value="map" :canEdit="true" ref="slippyMap"></slippy-map>
-
-<b-modal id="modalPrevent"
-             ref="nameModal"
-             title="Give your map a name"
-             @ok="onPublish(map.slug, map)"
-          >
+  <div>
+    <toponavo-header>
+      <b-navbar-nav class="navbar-center" v-if="isAuthenticated">
+        <b-nav-text> Editing&nbsp;<b v-if="map.title">{{ map.title}}</b><span v-else>an unnamed map</span>&nbsp;</b-nav-text>
+        <b-nav-item-dropdown text="File" right>
+          <b-dropdown-item v-on:click="onPublish(map.slug, map)">Save (ctrl + s)</b-dropdown-item>
+          <b-dropdown-item v-on:click="$refs.slippyMap.clearAnnotations()">Clear annotations</b-dropdown-item>
+        </b-nav-item-dropdown>
+        <b-nav-item-dropdown text="View" right>
+          <b-dropdown-item v-on:click="$refs.slippyMap.resetView()">Reset view</b-dropdown-item>
+          <b-dropdown-item v-on:click="$refs.slippyMap.zoomIn()">Zoom in</b-dropdown-item>
+          <b-dropdown-item v-on:click="$refs.slippyMap.zoomOut()">Zoom out</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+      <b-navbar-nav class="navbar-center" v-else>
+        <b-nav-text> Editing an unnamed map&nbsp;</b-nav-text>
+        <b-nav-item-dropdown disabled text="File" right>
+        </b-nav-item-dropdown>
+        <b-nav-item-dropdown disabled text="Edit" right>
+        </b-nav-item-dropdown>
+        <b-nav-item-dropdown disabled text="View" right>
+        </b-nav-item-dropdown>
+        <b-nav-item-dropdown disabled text="Output" right>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </toponavo-header>
+    <slippy-map :value="map" :canEdit="true" ref="slippyMap"></slippy-map>
+    <b-modal id="modalPrevent" ref="nameModal" title="Give your map a name" @ok="onPublish(map.slug, map)">
       <form>
-        <b-form-input type="text"
-                      placeholder="Name"
-                      v-model="map.title"></b-form-input>
-                      <br>
-                      <b-form-textarea :rows="3"
-                      placeholder="Description (optional)"
-                      v-model="map.description"></b-form-textarea>
+        <b-form-input type="text" placeholder="Name" v-model="map.title"></b-form-input>
+        <br>
+        <b-form-textarea :rows="3" placeholder="Description (optional)" v-model="map.description"></b-form-textarea>
       </form>
     </b-modal>
-
+    <b-modal id="modalPrevent" ref="importModal" title="Import GEOJson" @ok="onPublish(map.slug, map)">
+      <form>
+        <b-form-textarea :rows="3" placeholder="Paste in GEOJson" v-model="map.description"></b-form-textarea>
+      </form>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -62,7 +55,6 @@ import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import L from "leaflet";
 import "leaflet-draw";
 import SlippyMap from "@/components/SlippyMap";
-
 export default {
   name: "ToponavoMapEdit",
   components: {
@@ -116,7 +108,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["map"])
+    ...mapGetters(["map", "isAuthenticated"])
   },
   methods: {
     onPublish(slug, map) {
@@ -132,10 +124,10 @@ export default {
         .then(({ data }) => {
           this.inProgress = false;
           /*
-          this.$router.push({
-            name: 'map',
-            params: { slug: data.map.slug }
-          })*/
+            this.$router.push({
+              name: 'map',
+              params: { slug: data.map.slug }
+            })*/
         })
         .catch(({ response }) => {
           this.inProgress = false;

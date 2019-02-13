@@ -44,6 +44,7 @@ export default {
     logout() {
       this.$store.dispatch(LOGOUT).then(() => {
         this.$router.push({ name: "home" });
+        this.$router.go(0);
       });
     }
   }
